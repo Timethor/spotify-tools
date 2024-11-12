@@ -10,6 +10,7 @@
     "start:db": "cd database; docker compose up"
   },
   "dependencies": {
+    "@carbon/ibm-products": "^2.53.0",
     "@carbon/react": "^1.70.0",
     "colors": "^1.4.0",
     "dotenv": "^16.4.5",
