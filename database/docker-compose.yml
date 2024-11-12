@@ -1,0 +1,20 @@
+services:
+  spotify-tools-db:
+    container_name: spotify-tools
+    image: postgres:16.4
+    restart: always
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=spoti
+      - POSTGRES_PASSWORD=spc
+    ports:
+      # Reachable locally
+      - 5454:5432
+    volumes:
+      # A local path that the postgres docker image uses for storage
+      # Delete the ./postgres-data folder to do a "factory reset" of data
+      - ./postgres-data:/var/lib/postgresql/data
+
+      # Postgres will source `/docker-entrypoint-initdb.d/*` path on initial boot
+      # e.g. after deleting the `./postgres-data` folder
+      - ./scripts/create.sql:/docker-entrypoint-initdb.d/local.sql
