@@ -2,14 +2,12 @@ import Image from 'next/image'
 import styles from './page.module.scss'
 import Interaction from "@/app/interaction/page"
 import SignIn from "@/components/SignIn"
-import Avatar from "@/components/UserAvatar"
 
 export default function Home() {
   return (
     <main className={styles.main}>
       <div className={styles.description}>
         <SignIn />
-        <Avatar />
       </div>
 
       <div className={styles.center}>
